@@ -17,6 +17,10 @@ def add_student(students: list, student_id: str, name: str, age: int, grade: str
 
 def search_student(students: list, keyword: str) -> list:
     """Find students by name or ID, ignoring case."""
+    if not keyword.strip():
+        print("Search keyword cannot be empty!")
+        return []
+
     keyword_lower = keyword.lower()
     results = [
         student for student in students
