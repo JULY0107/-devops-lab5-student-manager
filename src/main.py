@@ -5,14 +5,20 @@ from student import Student
 
 def add_student(students: list, student_id: str, name: str, age: int, grade: str) -> list:
     """Add a student unless the ID is already present."""
+    if not student_id.strip():
+        print("Student ID cannot be empty!")
+        return students
+
     if any(student.student_id == student_id for student in students):
         print(f"Student ID {student_id} already exists!")
         return students
+
 
     new_student = Student(student_id, name, age, grade)
     students.append(new_student)
     print(f"Added student: {new_student}")
     return students
+
 
 
 def search_student(students: list, keyword: str) -> list:
